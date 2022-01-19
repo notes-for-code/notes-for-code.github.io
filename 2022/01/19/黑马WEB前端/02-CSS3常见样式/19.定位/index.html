@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.program-note.space","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="定位的概念、作用以及使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3常见样式-19.定位">
+<meta property="og:url" content="https://www.program-note.space/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/19.%E5%AE%9A%E4%BD%8D/index.html">
+<meta property="og:site_name" content="Program Note">
+<meta property="og:description" content="定位的概念、作用以及使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.program-note.space/images/40dfd94d9d9e8ed2fca7ca3f32abd271.png">
+<meta property="og:image" content="https://www.program-note.space/images/48e7188c461fea7da7ff2474b1a7493b.png">
+<meta property="og:image" content="https://www.program-note.space/images/4a2a3681baaeb356c69b6cfb19a10531.png">
+<meta property="og:image" content="https://www.program-note.space/images/a695128a1e45c474bd780d9623a7da73.png">
+<meta property="og:image" content="https://www.program-note.space/images/f05ade08d99a4550f9d2794366e528de.png">
+<meta property="og:image" content="https://www.program-note.space/images/caf98ca5922c1db9a62165fea90a6842.png">
+<meta property="article:published_time" content="2022-01-19T09:33:57.864Z">
+<meta property="article:modified_time" content="2022-01-19T09:33:57.864Z">
+<meta property="article:author" content="huakaitingqian">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="定位">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.program-note.space/images/40dfd94d9d9e8ed2fca7ca3f32abd271.png">
+
+
+<link rel="canonical" href="https://www.program-note.space/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/19.%E5%AE%9A%E4%BD%8D/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.program-note.space/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/19.%E5%AE%9A%E4%BD%8D/","path":"2022/01/19/黑马WEB前端/02-CSS3常见样式/19.定位/","title":"CSS3常见样式-19.定位"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CSS3常见样式-19.定位 | Program Note</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Program Note</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">生命不息、折腾不止</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#19-%E5%AE%9A%E4%BD%8D"><span class="nav-number">1.</span> <span class="nav-text">19.定位</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#19-1-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%AE%9A%E4%BD%8D%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">19.1 为什么需要定位？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-2-%E5%AE%9A%E4%BD%8D%E7%9A%84%E7%BB%84%E6%88%90"><span class="nav-number">1.2.</span> <span class="nav-text">19.2 定位的组成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#19-2-1-%E5%AE%9A%E4%BD%8D%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.2.1.</span> <span class="nav-text">19.2.1 定位模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-2-2-%E8%BE%B9%E5%81%8F%E7%A7%BB"><span class="nav-number">1.2.2.</span> <span class="nav-text">19.2.2 边偏移</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-3-%E9%9D%99%E6%80%81%E5%AE%9A%E4%BD%8D-static%EF%BC%88%E4%BA%86%E8%A7%A3%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">19.3 静态定位 static（了解）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-4-%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D-relative%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">19.4 相对定位 relative（重要）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-5-%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D-absolute%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-number">1.5.</span> <span class="nav-text">19.5 绝对定位 absolute（重要）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-6-%E5%AD%90%E7%BB%9D%E7%88%B6%E7%9B%B8%E7%9A%84%E7%94%B1%E6%9D%A5"><span class="nav-number">1.6.</span> <span class="nav-text">19.6 子绝父相的由来</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E7%BB%9D%E7%88%B6%E7%9B%B8%E6%A1%88%E4%BE%8B%EF%BC%9A%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF-hot-new-%E6%A8%A1%E5%9D%97%E6%B7%BB%E5%8A%A0"><span class="nav-number">1.6.1.</span> <span class="nav-text">子绝父相案例：学成在线 hot new 模块添加</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-7-%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D-fixed%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-number">1.7.</span> <span class="nav-text">19.7 固定定位 fixed（重要）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-8-%E7%B2%98%E6%80%A7%E5%AE%9A%E4%BD%8D-sticky%EF%BC%88%E4%BA%86%E8%A7%A3%EF%BC%89"><span class="nav-number">1.8.</span> <span class="nav-text">19.8 粘性定位 sticky（了解）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-9-%E5%AE%9A%E4%BD%8D%E7%9A%84%E6%80%BB%E7%BB%93"><span class="nav-number">1.9.</span> <span class="nav-text">19.9 定位的总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-10-%E5%AE%9A%E4%BD%8D%E5%8F%A0%E6%94%BE%E6%AC%A1%E5%BA%8F-z-index"><span class="nav-number">1.10.</span> <span class="nav-text">19.10 定位叠放次序 z-index</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-11-%E5%AE%9A%E4%BD%8D%E7%9A%84%E6%8B%93%E5%B1%95"><span class="nav-number">1.11.</span> <span class="nav-text">19.11 定位的拓展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#19-11-1-%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D%E7%9A%84%E7%9B%92%E5%AD%90%E5%B1%85%E4%B8%AD"><span class="nav-number">1.11.1.</span> <span class="nav-text">19.11.1 绝对定位的盒子居中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-11-2-%E5%AE%9A%E4%BD%8D%E7%9A%84%E7%89%B9%E6%AE%8A%E6%80%A7%E7%89%B9%E6%80%A7"><span class="nav-number">1.11.2.</span> <span class="nav-text">19.11.2 定位的特殊性特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-11-3-%E8%84%B1%E6%A0%87%E7%9A%84%E7%9B%92%E5%AD%90%E4%B8%8D%E4%BC%9A%E8%A7%A6%E5%8F%91%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%A1%8C%E9%99%B7"><span class="nav-number">1.11.3.</span> <span class="nav-text">19.11.3 脱标的盒子不会触发外边距塌陷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-11-4-%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D%EF%BC%88%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D%EF%BC%89%E4%BC%9A%E5%AE%8C%E5%85%A8%E5%8E%8B%E4%BD%8F%E7%9B%92%E5%AD%90"><span class="nav-number">1.11.4.</span> <span class="nav-text">19.11.4 绝对定位（固定定位）会完全压住盒子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-12-%E6%A1%88%E4%BE%8B%EF%BC%9A%E6%B7%98%E5%AE%9D%E7%84%A6%E7%82%B9%E5%9B%BE"><span class="nav-number">1.12.</span> <span class="nav-text">19.12 案例：淘宝焦点图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-3-%E7%BD%91%E9%A1%B5%E5%B8%83%E5%B1%80%E6%80%BB%E7%BB%93"><span class="nav-number">1.13.</span> <span class="nav-text">19.3 网页布局总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-4-%E5%85%83%E7%B4%A0%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E9%9A%90%E8%97%8F"><span class="nav-number">1.14.</span> <span class="nav-text">19.4 元素的显示与隐藏</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">huakaitingqian</p>
+  <div class="site-description" itemprop="description">随便记下</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.program-note.space/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/19.%E5%AE%9A%E4%BD%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="huakaitingqian">
+      <meta itemprop="description" content="随便记下">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Note">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSS3常见样式-19.定位
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-19 09:33:57" itemprop="dateCreated datePublished" datetime="2022-01-19T09:33:57+00:00">2022-01-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-19 09:33:57" itemprop="dateModified" datetime="2022-01-19T09:33:57+00:00">2022-01-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">黑马WEB前端</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">02-CSS3常见样式</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>定位的概念、作用以及使用</p>
+<span id="more"></span>
+
+<h1 id="19-定位"><a href="#19-定位" class="headerlink" title="19.定位"></a>19.定位</h1><h2 id="19-1-为什么需要定位？"><a href="#19-1-为什么需要定位？" class="headerlink" title="19.1 为什么需要定位？"></a>19.1 为什么需要定位？</h2><ul>
+<li><p>提问：以下情况使用标准流或者浮动能实现吗？</p>
+<ol>
+<li>某个元素可以自由的在一个盒子内移动位置，并且压住其他盒子</li>
+<li>当滚动窗口的时候，盒子是固定屏幕某个位置的</li>
+</ol>
+</li>
+<li><p>以上效果，标准流或浮动都无法快速实现，此时需要定位来实现。</p>
+</li>
+<li><p>所以：</p>
+<ol>
+<li>浮动可以让多个块级盒子一行没有缝隙排列显示，经常用于横向排列盒子</li>
+<li>定位则是可以让盒子自由的在某个盒子内移动位置或者固定屏幕中某个位置，并且可以压住其他盒子</li>
+</ol>
+</li>
+</ul>
+<h2 id="19-2-定位的组成"><a href="#19-2-定位的组成" class="headerlink" title="19.2 定位的组成"></a>19.2 定位的组成</h2><ul>
+<li>定位：将盒子定在某一个位置，所以定位也是在摆放盒子，按照定位的方式移动盒子</li>
+<li>定位 = 定位模式 + 边偏移<ul>
+<li>定位模式用于指定一个元素在文档中的定位方式</li>
+<li>边偏移则决定了该元素的最终位置</li>
+</ul>
+</li>
+</ul>
+<h3 id="19-2-1-定位模式"><a href="#19-2-1-定位模式" class="headerlink" title="19.2.1 定位模式"></a>19.2.1 定位模式</h3><ul>
+<li><p>定位模式决定元素的定位方式，它通过 CSS 的 position 属性来设置，其值可以分为四个：</p>
+<p>  <img src="/images/40dfd94d9d9e8ed2fca7ca3f32abd271.png"></p>
+</li>
+</ul>
+<h3 id="19-2-2-边偏移"><a href="#19-2-2-边偏移" class="headerlink" title="19.2.2 边偏移"></a>19.2.2 边偏移</h3><ul>
+<li><p>边偏移就是定位的盒子移动到最终位置。有 top、bottom、left、right 4 个属性</p>
+<p>  <img src="/images/48e7188c461fea7da7ff2474b1a7493b.png"></p>
+</li>
+</ul>
+<h2 id="19-3-静态定位-static（了解）"><a href="#19-3-静态定位-static（了解）" class="headerlink" title="19.3 静态定位 static（了解）"></a>19.3 静态定位 static（了解）</h2><ul>
+<li><p>静态定位是元素的默认定位方式，无定位的意思</p>
+</li>
+<li><p>语法：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">选择器 &#123;</span><br><span class="line">    position: static;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>静态定位按照标准流特性摆放位置，它没有边偏移</p>
+</li>
+<li><p>静态定位在布局时很少使用</p>
+</li>
+</ul>
+<h2 id="19-4-相对定位-relative（重要）"><a href="#19-4-相对定位-relative（重要）" class="headerlink" title="19.4 相对定位 relative（重要）"></a>19.4 相对定位 relative（重要）</h2><ul>
+<li><p>相对定位是元素在移动位置的时候，是相对于它原来的位置来说的（自恋型）</p>
+</li>
+<li><p>语法</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">选择器 &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>相对定位的特点：（务必记住）</p>
+<ol>
+<li>它是相对于自己原来的位置来移动的（移动位置的时候参照点事自己原来的位置）</li>
+<li>原来在标准流的位置继续占有，后面的盒子仍然以标准流的方式对待它（不脱标，继续保留原来位置）</li>
+</ol>
+</li>
+<li><p>因此，相对定位并没有脱标。它最典型的应用是给绝对定位当爹的</p>
+</li>
+</ul>
+<h2 id="19-5-绝对定位-absolute（重要）"><a href="#19-5-绝对定位-absolute（重要）" class="headerlink" title="19.5 绝对定位 absolute（重要）"></a>19.5 绝对定位 absolute（重要）</h2><ul>
+<li><p>绝对定位是元素在移动位置的时候，是相对于它祖先元素来说的（拼爹型）</p>
+</li>
+<li><p>语法：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">选择器 &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>绝对定位特点：（务必记住）</p>
+<ol>
+<li>如果没有祖先元素或者祖先元素没有定位，则以浏览器为准定位（Document 文档）</li>
+<li>如果祖先元素有定位（相对、绝对、固定定位），则以最近一级的有定位祖先元素为参考点移动位置</li>
+<li>绝对定位不再占有原先的位置（脱标）</li>
+</ol>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .grandfather &#123;</span><br><span class="line">        width: 500px;</span><br><span class="line">        height: 500px;</span><br><span class="line">        background-color: skyblue;</span><br><span class="line">        position: absolute;</span><br><span class="line">    &#125;</span><br><span class="line">    .father &#123;</span><br><span class="line">        width: 350px;</span><br><span class="line">        height: 350px;</span><br><span class="line">        background-color: pink;</span><br><span class="line">        margin: 100px;</span><br><span class="line">        */*标准流的子盒子总是以父级为准移动位置*/*</span><br><span class="line">          */*如果 父级 没有定位 绝对定位子盒子 以我们文档为准浏览器移动位置*/*</span><br><span class="line">          */*如果 父级 有定位 绝对定位子盒子 以父级为准移动位置*/*</span><br><span class="line">        */*position: relative;*/*</span><br><span class="line">    &#125;</span><br><span class="line">    .son &#123;</span><br><span class="line">        width: 200px;</span><br><span class="line">        height: 200px;</span><br><span class="line">        background-color: purple;</span><br><span class="line">        */*margin-left: 100px;*/*</span><br><span class="line">        position: absolute;</span><br><span class="line">        top: 50px;</span><br><span class="line">        left: 50px;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;grandfather&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;father&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;son&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="19-6-子绝父相的由来"><a href="#19-6-子绝父相的由来" class="headerlink" title="19.6 子绝父相的由来"></a>19.6 子绝父相的由来</h2><ul>
+<li><p>问题：</p>
+<ol>
+<li>绝对定位和相对定位到底有什么使用场景呢？</li>
+<li>为什么说相对定位给绝对定位当爹呢？</li>
+</ol>
+</li>
+<li><p>弄清楚了这个口诀，就明白了绝对定位和相对定位的使用场景</p>
+</li>
+<li><p>这个“子绝父相”太重要了，是我们学习定位的口诀，是定位中最常用的一种方式。</p>
+</li>
+<li><p>这句话的意思是：子级是绝对定位的话，父级要用相对定位</p>
+</li>
+</ul>
+<ol>
+<li>子级绝对定位，不会占有位置，可以放到父盒子里面的任何一个地方，不会影响其他的兄弟盒子</li>
+<li>父盒子需要加定位限制子盒子在父盒子内显示</li>
+<li>父盒子布局时，需要占有位置，因此父盒子只能是相对定位</li>
+</ol>
+<ul>
+<li>这就是子绝父相的由来，所以相对定位经常用来作为绝对定位的父级</li>
+<li>总结：因为父级需要占有位置，因此是相对的，子盒子不需要占有位置，则是绝对的</li>
+<li>当然，子绝父相不是永远不变的，如果父元素不需要占有位置，子绝父绝也会遇到</li>
+</ul>
+<h3 id="子绝父相案例：学成在线-hot-new-模块添加"><a href="#子绝父相案例：学成在线-hot-new-模块添加" class="headerlink" title="子绝父相案例：学成在线 hot new 模块添加"></a>子绝父相案例：学成在线 hot new 模块添加</h3><ul>
+<li><p>图示：</p>
+<p>  <img src="/images/4a2a3681baaeb356c69b6cfb19a10531.png"></p>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;box-bd&quot;&gt;</span><br><span class="line">    &lt;ul class=&quot;clearfix&quot;&gt;</span><br><span class="line">        &lt;li&gt;</span><br><span class="line">            &lt;em&gt;</span><br><span class="line">                &lt;img src=&quot;images/hot.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">            &lt;/em&gt;</span><br><span class="line">            &lt;img src=&quot;images/pic.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">            &lt;h4&gt;ThinkPHP5.0博客系统实战&lt;/h4&gt;</span><br><span class="line">            &lt;div class=&quot;info&quot;&gt;</span><br><span class="line">                &lt;span&gt;高级&lt;/span&gt;·1125人在学习</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">        *&lt;!-- ... --&gt;*</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">.box-bd ul &#123;</span><br><span class="line">    width: 1225px;</span><br><span class="line">&#125;</span><br><span class="line">.box-bd ul li &#123;</span><br><span class="line">    float: left;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 228px;</span><br><span class="line">    height: 270px;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">    margin-right: 15px;</span><br><span class="line">    margin-bottom: 15px;</span><br><span class="line">&#125;</span><br><span class="line">.box-bd ul li em&#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 4px;</span><br><span class="line">    right: -4px;</span><br><span class="line">&#125;</span><br><span class="line">.box-bd ul li &gt; img &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">&#125;</span><br><span class="line">.box-bd ul li h4 &#123;</span><br><span class="line">    margin: 20px 20px 20px 25px;</span><br><span class="line">    font-size: 14px;</span><br><span class="line">    color: #050505;</span><br><span class="line">    font-weight: 400;</span><br><span class="line">&#125;</span><br><span class="line">.info &#123;</span><br><span class="line">    margin: 0 20px 0 25px;</span><br><span class="line">    font-size: 12px;</span><br><span class="line">    color: #999;</span><br><span class="line">&#125;</span><br><span class="line">.info span &#123;</span><br><span class="line">    color: #ff7c2d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="19-7-固定定位-fixed（重要）"><a href="#19-7-固定定位-fixed（重要）" class="headerlink" title="19.7 固定定位 fixed（重要）"></a>19.7 固定定位 fixed（重要）</h2><ul>
+<li><p>固定定位是元素固定于浏览器可视区的位置。主要使用 场景：可以在浏览器页面滚动时元素的位置不会改变</p>
+</li>
+<li><p>语法：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">选择器 &#123;</span><br><span class="line">    position: fixed;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>固定定位的特点：（务必记住）</p>
+<ol>
+<li><p>以浏览器的可视窗口为参照点移动元素</p>
+<ul>
+<li>跟父元素没有任何关系</li>
+<li>不随着滚动条滚动</li>
+</ul>
+</li>
+<li><p>固定定位不再占有原先的位置</p>
+</li>
+</ol>
+</li>
+<li><p>固定定位也是脱标的，其实固定定位也可以看作是一种特殊的绝对定位</p>
+</li>
+<li><p>固定定位小技巧：固定在版心右侧位置</p>
+<ol>
+<li>让固定定位的盒子 <code>left:50%;</code>，走到浏览器可视区域的一半位置</li>
+<li>让固定定位的盒子 <code>margin-left: 版心宽度的一半距离;</code>，多走版心宽度的一半位置</li>
+</ol>
+<ul>
+<li>就可以让固定定位的盒子贴着版心右侧对齐了</li>
+</ul>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .w &#123;</span><br><span class="line">        width: 800px;</span><br><span class="line">        height: 1400px;</span><br><span class="line">        background-color: skyblue;</span><br><span class="line">        margin: 0 auto;</span><br><span class="line">    &#125;</span><br><span class="line">    .fixed &#123;</span><br><span class="line">        position: fixed;</span><br><span class="line">        */* 1.走浏览器的一半 */*</span><br><span class="line">        top: 50%;</span><br><span class="line">        left: 50%;</span><br><span class="line">        */* 2.走版心的一半 */*</span><br><span class="line">        margin-left: 400px;</span><br><span class="line">        width: 50px;</span><br><span class="line">        height: 150px;</span><br><span class="line">        background-color: red;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;fixed&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;w&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="19-8-粘性定位-sticky（了解）"><a href="#19-8-粘性定位-sticky（了解）" class="headerlink" title="19.8 粘性定位 sticky（了解）"></a>19.8 粘性定位 sticky（了解）</h2><ul>
+<li><p>粘性定位可以被认为是相对定位和固定定位的混合。sticky 粘性的</p>
+</li>
+<li><p>语法：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">选择器 &#123;</span><br><span class="line">    position: sticky;</span><br><span class="line">    top: 10px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>粘性定位的特点：</p>
+<ol>
+<li>以浏览器的可视窗口为参照点移动元素（固定定位特点）</li>
+<li>粘性定位占有原先的位置（相对定位特显）</li>
+<li>必须添加 top、left、right、bottom 其中一个才有效</li>
+</ol>
+</li>
+<li><p>跟页面滚动搭配使用。兼容性较差，IE不支持</p>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    body &#123;</span><br><span class="line">        height: 3000px;</span><br><span class="line">    &#125;</span><br><span class="line">    .nav &#123;</span><br><span class="line">        position: sticky;</span><br><span class="line">        top: 0;</span><br><span class="line">        width: 800px;</span><br><span class="line">        height: 50px;</span><br><span class="line">        background-color: skyblue;</span><br><span class="line">        margin: 100px auto;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;nav&quot;&gt;我是导航栏&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="19-9-定位的总结"><a href="#19-9-定位的总结" class="headerlink" title="19.9 定位的总结"></a>19.9 定位的总结</h2><ul>
+<li><p>图示：</p>
+<p>  <img src="/images/a695128a1e45c474bd780d9623a7da73.png"></p>
+</li>
+</ul>
+<ol>
+<li>一定要记住：相对定位、绝对定位、固定定位。两个大的特点：1.是否占有位置（脱标否）2.以谁为基准点移动位置</li>
+<li>学习定位重点学会子绝父相</li>
+</ol>
+<h2 id="19-10-定位叠放次序-z-index"><a href="#19-10-定位叠放次序-z-index" class="headerlink" title="19.10 定位叠放次序 z-index"></a>19.10 定位叠放次序 z-index</h2><ul>
+<li><p>在使用定位布局时，可能会出现盒子重叠的情况。此时，可以使用 z-index 来控制盒子的前后次序（z 轴）</p>
+</li>
+<li><p>语法：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">选择器 &#123;</span><br><span class="line">    z-index: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>数值可以是正整数、负整数或0，默认是 auto，数值越大，盒子越靠上</li>
+<li>如果属性值相同，则按照书写顺序，后来居上</li>
+<li>数字后面不能加单位</li>
+<li>只有定位的盒子才有 z-index 属性</li>
+</ul>
+</li>
+</ul>
+<h2 id="19-11-定位的拓展"><a href="#19-11-定位的拓展" class="headerlink" title="19.11 定位的拓展"></a>19.11 定位的拓展</h2><h3 id="19-11-1-绝对定位的盒子居中"><a href="#19-11-1-绝对定位的盒子居中" class="headerlink" title="19.11.1 绝对定位的盒子居中"></a>19.11.1 绝对定位的盒子居中</h3><ul>
+<li><p>加了绝对定位的盒子不能通过 <code>margin: 0 auto;</code> 水平居中， 但是可以通过以下计算方式实现水平和垂直居中</p>
+</li>
+<li><p>步骤：</p>
+<ol>
+<li><code>left: 50%;</code> 让盒子的左侧移动到父元素的水平中心位置</li>
+<li><code>margin-left: -100px;</code> 让盒子向左移动自身宽度的一半</li>
+</ol>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .father &#123;</span><br><span class="line">        position: relative;</span><br><span class="line">        width: 800px;</span><br><span class="line">        height: 600px;</span><br><span class="line">        background-color: skyblue;</span><br><span class="line">    &#125;</span><br><span class="line">    .son &#123;</span><br><span class="line">        position: absolute;</span><br><span class="line">        left: 50%;</span><br><span class="line">        top: 50%;</span><br><span class="line">        margin-left: -150px;</span><br><span class="line">        margin-top: -100px;</span><br><span class="line">        width: 300px;</span><br><span class="line">        height: 200px;</span><br><span class="line">        background-color: red;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;father&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;son&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="19-11-2-定位的特殊性特性"><a href="#19-11-2-定位的特殊性特性" class="headerlink" title="19.11.2 定位的特殊性特性"></a>19.11.2 定位的特殊性特性</h3><ul>
+<li><p>绝对定位和固定定位也和浮动类似</p>
+<ol>
+<li>行内元素添加绝对定位或者固定定位，可以直接设置高度和宽度</li>
+<li>块级元素添加绝对定位或者固定定位，如果不给宽度和高度，默认大小是内容的大小</li>
+</ol>
+</li>
+</ul>
+<h3 id="19-11-3-脱标的盒子不会触发外边距塌陷"><a href="#19-11-3-脱标的盒子不会触发外边距塌陷" class="headerlink" title="19.11.3 脱标的盒子不会触发外边距塌陷"></a>19.11.3 脱标的盒子不会触发外边距塌陷</h3><ul>
+<li>浮动元素、绝对定位（固定定位）元素的都不会触发外边距合并的问题</li>
+</ul>
+<h3 id="19-11-4-绝对定位（固定定位）会完全压住盒子"><a href="#19-11-4-绝对定位（固定定位）会完全压住盒子" class="headerlink" title="19.11.4 绝对定位（固定定位）会完全压住盒子"></a>19.11.4 绝对定位（固定定位）会完全压住盒子</h3><ul>
+<li><p>浮动元素不同，只会压住它下面的标准流的盒子，但是不会压住标准流盒子里面的文字</p>
+</li>
+<li><p>但是绝对定位（固定定位）会压住下面标准流所有的内容</p>
+</li>
+<li><p>浮动之所以不会压住文字，因为浮动产生的目的最初是为了做文字环绕效果。文字会围绕浮动元素</p>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .box &#123;</span><br><span class="line">        */* float: left; */*</span><br><span class="line">        position: absolute;</span><br><span class="line">        width: 300px;</span><br><span class="line">        height: 200px;</span><br><span class="line">        background-color: skyblue;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;p&gt;测试文字。特殊特性&lt;/p&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="19-12-案例：淘宝焦点图"><a href="#19-12-案例：淘宝焦点图" class="headerlink" title="19.12 案例：淘宝焦点图"></a>19.12 案例：淘宝焦点图</h2><ul>
+<li><p>图示：</p>
+<p>  <img src="/images/f05ade08d99a4550f9d2794366e528de.png"></p>
+</li>
+<li><p>布局分析：</p>
+<p>  <img src="/images/caf98ca5922c1db9a62165fea90a6842.png"></p>
+</li>
+</ul>
+<ol>
+<li>大盒子我们类名为 tb-promo 淘宝广告</li>
+<li>里面先放一张图片</li>
+<li>左右两个按钮用链接就好了。左箭头 prev，右箭头 next</li>
+<li>地测小圆点 ul 继续做。类名为 promo-nav</li>
+</ol>
+<ul>
+<li><p>注意：</p>
+<ul>
+<li>如果一个盒子既有 left 属性也有 right 属性，则默认会执行 left 属性；同理 top bottom 会执行 top</li>
+</ul>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    * &#123;</span><br><span class="line">        padding: 0;</span><br><span class="line">        margin: 0;</span><br><span class="line">    &#125;</span><br><span class="line">    a &#123;</span><br><span class="line">        text-decoration: none;</span><br><span class="line">    &#125;</span><br><span class="line">    li &#123;</span><br><span class="line">        list-style: none;</span><br><span class="line">    &#125;</span><br><span class="line">    .tb-promo &#123;</span><br><span class="line">        position: relative;</span><br><span class="line">        width: 520px;</span><br><span class="line">        height: 280px;</span><br><span class="line">        background-color: skyblue;</span><br><span class="line">        margin: 100px auto;</span><br><span class="line">    &#125;</span><br><span class="line">    .tb-promo img &#123;</span><br><span class="line">        width: 520px;</span><br><span class="line">        height: 280px;</span><br><span class="line">    &#125;</span><br><span class="line">    */* 并集选择器可以集体声明相同的样式 */*</span><br><span class="line">    .prev,</span><br><span class="line">    .next &#123;</span><br><span class="line">        position: absolute;</span><br><span class="line">        top: 50%;</span><br><span class="line">        margin-top: -15px;</span><br><span class="line">        width: 20px;</span><br><span class="line">        height: 30px;</span><br><span class="line">        background: rgba(0, 0, 0, .4);</span><br><span class="line">        color: #fff;</span><br><span class="line">    &#125;</span><br><span class="line">    .prev &#123;</span><br><span class="line">        left: 0;</span><br><span class="line">        border-top-right-radius: 15px;</span><br><span class="line">        border-bottom-right-radius: 15px;</span><br><span class="line">    &#125;</span><br><span class="line">    .next &#123;</span><br><span class="line">        right: 0;</span><br><span class="line">        border-top-left-radius: 15px;</span><br><span class="line">        border-bottom-left-radius: 15px;</span><br><span class="line">    &#125;</span><br><span class="line">    .promo-nav &#123;</span><br><span class="line">        position: absolute;</span><br><span class="line">        bottom: 10px;</span><br><span class="line">        left: 50%;</span><br><span class="line">        margin-left: -35px;</span><br><span class="line">        width: 70px;</span><br><span class="line">        height: 14px;</span><br><span class="line">        background-color: rgba(255, 255, 55, .3);</span><br><span class="line">        border-radius: 7px;</span><br><span class="line">    &#125;</span><br><span class="line">    .promo-nav li &#123;</span><br><span class="line">        float: left;</span><br><span class="line">        width: 8px;</span><br><span class="line">        height: 8px;</span><br><span class="line">        background-color: #fff;</span><br><span class="line">        border-radius: 4px;</span><br><span class="line">        margin: 3px;</span><br><span class="line">    &#125;</span><br><span class="line">    */* 不要忘记选择器权重的问题 */*</span><br><span class="line">    .promo-nav .selected &#123;</span><br><span class="line">        background-color: #ff5000;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;tb-promo&quot;&gt;</span><br><span class="line">    &lt;img src=&quot;images/tb.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">    *&lt;!-- 左侧按钮 --&gt;*</span><br><span class="line">    &lt;a href=&quot;#&quot; class=&quot;prev&quot;&gt;&amp;lt;&lt;/a&gt;</span><br><span class="line">    *&lt;!-- 右侧按钮 --&gt;*</span><br><span class="line">    &lt;a href=&quot;#&quot; class=&quot;next&quot;&gt;&amp;gt;&lt;/a&gt;</span><br><span class="line">    *&lt;!-- 底部小圆点 --&gt;*</span><br><span class="line">    &lt;ul class=&quot;promo-nav&quot;&gt;</span><br><span class="line">        &lt;li class=&quot;selected&quot;&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="19-3-网页布局总结"><a href="#19-3-网页布局总结" class="headerlink" title="19.3 网页布局总结"></a>19.3 网页布局总结</h2><h2 id="19-4-元素的显示与隐藏"><a href="#19-4-元素的显示与隐藏" class="headerlink" title="19.4 元素的显示与隐藏"></a>19.4 元素的显示与隐藏</h2>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+              <a href="/tags/%E5%AE%9A%E4%BD%8D/" rel="tag"># 定位</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/20.%E7%BD%91%E9%A1%B5%E5%B8%83%E5%B1%80%E6%80%BB%E7%BB%93/" rel="prev" title="CSS3常见样式-20.网页布局总结">
+                  <i class="fa fa-chevron-left"></i> CSS3常见样式-20.网页布局总结
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/18.%E6%B5%AE%E5%8A%A8/" rel="next" title="CSS3常见样式-18.浮动">
+                  CSS3常见样式-18.浮动 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备2022007516号 </a>
+  </div>
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">huakaitingqian</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

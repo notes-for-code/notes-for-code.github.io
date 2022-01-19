@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.program-note.space","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="页面布局要学习的三大核心：盒子模型、浮动和定位。学习好盒子模型能非常好的帮助我们布局页面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3常见样式-12.CSS盒子模型">
+<meta property="og:url" content="https://www.program-note.space/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/12.%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Program Note">
+<meta property="og:description" content="页面布局要学习的三大核心：盒子模型、浮动和定位。学习好盒子模型能非常好的帮助我们布局页面">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.program-note.space/images/89db9a0f34b1b166020187753ceacb92.png">
+<meta property="og:image" content="https://www.program-note.space/images/31b2a6453404eb8585d99b37a2a52f91.png">
+<meta property="og:image" content="https://www.program-note.space/images/393b9595e72d4f738a4c7440f89d20ae.png">
+<meta property="og:image" content="https://www.program-note.space/images/6bd11bfc477c58fbdba2025ba184531d.png">
+<meta property="og:image" content="https://www.program-note.space/images/e207acb0f76f29de2b08fa7b82c5a329.png">
+<meta property="og:image" content="https://www.program-note.space/images/3f977c2d9e9b9e5d26096fb07ae0b4e0.png">
+<meta property="og:image" content="https://www.program-note.space/images/256c840789a7580dd41efb752ceace44.png">
+<meta property="article:published_time" content="2022-01-19T09:33:57.864Z">
+<meta property="article:modified_time" content="2022-01-19T09:33:57.864Z">
+<meta property="article:author" content="huakaitingqian">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="盒子模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.program-note.space/images/89db9a0f34b1b166020187753ceacb92.png">
+
+
+<link rel="canonical" href="https://www.program-note.space/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/12.%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.program-note.space/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/12.%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/","path":"2022/01/19/黑马WEB前端/02-CSS3常见样式/12.盒子模型/","title":"CSS3常见样式-12.CSS盒子模型"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CSS3常见样式-12.CSS盒子模型 | Program Note</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Program Note</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">生命不息、折腾不止</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#12-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">12.盒子模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#12-1-%E7%9C%8B%E9%80%8F%E7%BD%91%E9%A1%B5%E5%B8%83%E5%B1%80%E7%9A%84%E6%9C%AC%E5%9C%B0"><span class="nav-number">1.1.</span> <span class="nav-text">12.1 看透网页布局的本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-2-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%EF%BC%88Box-Model%EF%BC%89%E7%BB%84%E6%88%90"><span class="nav-number">1.2.</span> <span class="nav-text">12.2 盒子模型（Box Model）组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-3-%E8%BE%B9%E6%A1%86%EF%BC%88border%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">12.3 边框（border）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%B9%E6%A1%86%E7%9A%84%E5%A4%8D%E5%90%88%E5%86%99%E6%B3%95"><span class="nav-number">1.3.1.</span> <span class="nav-text">边框的复合写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%B9%E6%A1%86%E5%88%86%E5%BC%80%E5%86%99%E6%B3%95"><span class="nav-number">1.3.2.</span> <span class="nav-text">边框分开写法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-4-%E8%A1%A8%E6%A0%BC%E7%9A%84%E7%BB%86%E7%BA%BF%E8%BE%B9%E6%A1%86"><span class="nav-number">1.4.</span> <span class="nav-text">12.4 表格的细线边框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-5-%E8%BE%B9%E6%A1%86%E4%BC%9A%E5%BD%B1%E5%93%8D%E7%9B%92%E5%AD%90%E5%AE%9E%E9%99%85%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.5.</span> <span class="nav-text">12.5 边框会影响盒子实际大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-6-%E5%86%85%E8%BE%B9%E8%B7%9D%EF%BC%88padding%EF%BC%89"><span class="nav-number">1.6.</span> <span class="nav-text">12.6 内边距（padding）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E8%BE%B9%E8%B7%9D%E5%A4%8D%E5%90%88%E5%B1%9E%E6%80%A7"><span class="nav-number">1.6.1.</span> <span class="nav-text">内边距复合属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#padding-%E5%BD%B1%E5%93%8D%E7%9B%92%E5%AD%90%E5%AE%9E%E9%99%85%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.6.2.</span> <span class="nav-text">padding 影响盒子实际大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B%EF%BC%9A%E6%96%B0%E6%B5%AA%E5%AF%BC%E8%88%AA%E6%A0%8F"><span class="nav-number">1.6.3.</span> <span class="nav-text">案例：新浪导航栏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#padding-%E4%B8%8D%E5%BD%B1%E5%93%8D%E7%9B%92%E5%AD%90%E5%A4%A7%E5%B0%8F%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-number">1.6.4.</span> <span class="nav-text">padding 不影响盒子大小的情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-7-%E5%A4%96%E8%BE%B9%E8%B7%9D%EF%BC%88margin%EF%BC%89"><span class="nav-number">1.7.</span> <span class="nav-text">12.7 外边距（margin）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-8-%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%90%88%E5%B9%B6"><span class="nav-number">1.8.</span> <span class="nav-text">12.8 外边距合并</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E9%82%BB%E5%9D%97%E5%85%83%E7%B4%A0%E5%9E%82%E7%9B%B4%E5%A4%96%E8%BE%B9%E8%B7%9D%E7%9A%84%E5%90%88%E5%B9%B6"><span class="nav-number">1.8.1.</span> <span class="nav-text">相邻块元素垂直外边距的合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%A5%97%E5%9D%97%E5%85%83%E7%B4%A0%E5%9E%82%E7%9B%B4%E5%A4%96%E8%BE%B9%E8%B7%9D%E7%9A%84%E5%A1%8C%E9%99%B7"><span class="nav-number">1.8.2.</span> <span class="nav-text">嵌套块元素垂直外边距的塌陷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-9-%E6%B8%85%E9%99%A4%E5%86%85%E5%A4%96%E8%BE%B9%E8%B7%9D"><span class="nav-number">1.9.</span> <span class="nav-text">12.9 清除内外边距</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">huakaitingqian</p>
+  <div class="site-description" itemprop="description">随便记下</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.program-note.space/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/12.%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="huakaitingqian">
+      <meta itemprop="description" content="随便记下">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Note">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSS3常见样式-12.CSS盒子模型
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-19 09:33:57" itemprop="dateCreated datePublished" datetime="2022-01-19T09:33:57+00:00">2022-01-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-19 09:33:57" itemprop="dateModified" datetime="2022-01-19T09:33:57+00:00">2022-01-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">黑马WEB前端</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">02-CSS3常见样式</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>页面布局要学习的三大核心：盒子模型、浮动和定位。学习好盒子模型能非常好的帮助我们布局页面</p>
+<span id="more"></span>
+
+<h1 id="12-盒子模型"><a href="#12-盒子模型" class="headerlink" title="12.盒子模型"></a>12.盒子模型</h1><ul>
+<li>页面布局要学习的三大核心：盒子模型、浮动和定位。学习好盒子模型能非常好的帮助我们布局页面</li>
+</ul>
+<h2 id="12-1-看透网页布局的本地"><a href="#12-1-看透网页布局的本地" class="headerlink" title="12.1 看透网页布局的本地"></a>12.1 看透网页布局的本地</h2><ul>
+<li><p>网页布局过程：</p>
+<ol>
+<li>先准备好相关的网页元素，网页元素基本都是盒子 Box</li>
+<li>利用 CSS 设置好盒子样式，然后拜访到相应位置</li>
+<li>往盒子里面装内容</li>
+</ol>
+</li>
+<li><p>网页布局的核心本质：就是利用 CSS 摆盒子</p>
+</li>
+</ul>
+<h2 id="12-2-盒子模型（Box-Model）组成"><a href="#12-2-盒子模型（Box-Model）组成" class="headerlink" title="12.2 盒子模型（Box Model）组成"></a>12.2 盒子模型（Box Model）组成</h2><ul>
+<li><p>所谓盒子模型：就是把 HTML 页面中的布局元素看作是一个矩形的盒子，也就是一个盛装内容的容器</p>
+</li>
+<li><p>CSS 盒子模型本质上是一个盒子，封装周围的 HTML 元素，它包括：边框、外边距、内边距和内容</p>
+<ul>
+<li>border 边框</li>
+<li>content 内容</li>
+<li>padding 内边距</li>
+<li>margin 外边距</li>
+</ul>
+</li>
+<li><p>图示：</p>
+<p>  <img src="/images/89db9a0f34b1b166020187753ceacb92.png"></p>
+</li>
+</ul>
+<h2 id="12-3-边框（border）"><a href="#12-3-边框（border）" class="headerlink" title="12.3 边框（border）"></a>12.3 边框（border）</h2><ul>
+<li><p>border 可以设置元素的边框。边框有三部分组成：边框宽度（粗细）、边框样式、边框颜色</p>
+</li>
+<li><p>语法：</p>
+<p>  <code>border: border-width || border-style || border-color;</code></p>
+</li>
+<li><p>取值：</p>
+<p>  <img src="/images/31b2a6453404eb8585d99b37a2a52f91.png"></p>
+</li>
+<li><p>border-style 取值：</p>
+<ul>
+<li>dotted - 定义点线边框</li>
+<li>dashed - 定义虚线边框</li>
+<li>solid - 定义实线边框</li>
+<li>double - 定义双边框</li>
+<li>groove - 定义 3D 坡口边框。效果取决于 border-color 值</li>
+<li>ridge - 定义 3D 脊线边框。效果取决于 border-color 值</li>
+<li>inset - 定义 3D inset 边框。效果取决于 border-color 值</li>
+<li>outset - 定义 3D outset 边框。效果取决于 border-color 值</li>
+<li>none - 定义无边框hidden - 定义隐藏边框</li>
+</ul>
+</li>
+<li><p>border-style 取值的效果图：</p>
+<p>  <img src="/images/393b9595e72d4f738a4c7440f89d20ae.png"></p>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    border-width: 10px;</span><br><span class="line">    border-style: solid;</span><br><span class="line">    border-color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="边框的复合写法"><a href="#边框的复合写法" class="headerlink" title="边框的复合写法"></a>边框的复合写法</h3><ul>
+<li><p>语法：</p>
+<p>  <code>border: border-width || border-style || border-color;</code></p>
+<ul>
+<li>没有顺序限制</li>
+</ul>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    border: 5px solid red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="边框分开写法"><a href="#边框分开写法" class="headerlink" title="边框分开写法"></a>边框分开写法</h3><ul>
+<li><p>语法：</p>
+<p>  <code>border-top: border-width || border-style || border-color;</code></p>
+<ul>
+<li>border-top/border-bottom/border-left/border-right</li>
+</ul>
+</li>
+<li><p>示例：盒子上边框红色，其余边框蓝色</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    */* border 包含四条边 */*</span><br><span class="line">    border: 1px solid blue;</span><br><span class="line">    */* 层叠性 只是层叠了上边框 */*</span><br><span class="line">    border-top: 1px solid red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="12-4-表格的细线边框"><a href="#12-4-表格的细线边框" class="headerlink" title="12.4 表格的细线边框"></a>12.4 表格的细线边框</h2><ul>
+<li><p>border-collapse 属性控制浏览器绘制表格边框的样式。它控制相邻单元格的边框</p>
+</li>
+<li><p>语法：</p>
+<p>  <code>border-collapse: collapse;</code></p>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">table &#123;</span><br><span class="line">    width: 500px;</span><br><span class="line">    height: 250px;</span><br><span class="line">&#125;</span><br><span class="line">th &#123;</span><br><span class="line">    height: 35px;</span><br><span class="line">&#125;</span><br><span class="line">table,</span><br><span class="line">th,</span><br><span class="line">td &#123;</span><br><span class="line">    border: 1px solid red;</span><br><span class="line">    border-collapse: collapse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>collapse 单词是合并的意思</p>
+</li>
+<li><p><code>border-collapse: collapse;</code> 表示相邻边框合并在一起</p>
+</li>
+</ul>
+<h2 id="12-5-边框会影响盒子实际大小"><a href="#12-5-边框会影响盒子实际大小" class="headerlink" title="12.5 边框会影响盒子实际大小"></a>12.5 边框会影响盒子实际大小</h2><ul>
+<li><p>边框会额外增加盒子的实际大小，因此我们有两种方案解决：</p>
+<ol>
+<li>测量盒子大小的时候，不量边框</li>
+<li>如果测量的时候包含了边框，则需要 width/height 减去边框宽度</li>
+</ol>
+</li>
+</ul>
+<h2 id="12-6-内边距（padding）"><a href="#12-6-内边距（padding）" class="headerlink" title="12.6 内边距（padding）"></a>12.6 内边距（padding）</h2><ul>
+<li><p>padding 属性用于设置内边距，即边框与内容之间的巨鹿</p>
+</li>
+<li><p>可以单独设置每个方向的内边距</p>
+<p>  <img src="/images/6bd11bfc477c58fbdba2025ba184531d.png"></p>
+</li>
+<li><p>示例：</p>
+<p>  <code>padding-top: 20px;</code></p>
+</li>
+</ul>
+<h3 id="内边距复合属性"><a href="#内边距复合属性" class="headerlink" title="内边距复合属性"></a>内边距复合属性</h3><ul>
+<li><p>padding 属性（简写属性）可以有一到四个值</p>
+</li>
+<li><p>值的个数：</p>
+<ol>
+<li><code>padding: Xpx;</code>：一个值，表示上下左右都有 X 值的内边距</li>
+<li><code>padding: Xpx Ypx;</code>：两个值，X 表示上下内边距，Y 表示左右内边距</li>
+<li><code>padding: Xpx Ypx Jpx;</code>：三个值，X 表示上内边距，Y 表示左右内边距，J 表示下内边距</li>
+<li><code>padding: Xpx Ypx Jpx Kpx;</code>：四个值，X 表示上内边距，Y 表示右内边距，J 表示下内边距，K 表示左内边距。顺时针</li>
+</ol>
+</li>
+</ul>
+<h3 id="padding-影响盒子实际大小"><a href="#padding-影响盒子实际大小" class="headerlink" title="padding 影响盒子实际大小"></a>padding 影响盒子实际大小</h3><ul>
+<li><p>当我们给盒子指定了 padding 值之后，发生了 2 件事情</p>
+<ol>
+<li>内容和边框有了距离，添加了内边距</li>
+<li>padding 影响了盒子实际大小</li>
+</ol>
+</li>
+<li><p>也就是说，如果盒子已经有了宽度和高度，此时再指定内边框，会撑大盒子</p>
+</li>
+<li><p>解决方案：</p>
+<ul>
+<li>如果保证盒子跟效果图大小一致，则让 width/height 减去多出来的内边距大小即可</li>
+</ul>
+</li>
+</ul>
+<h3 id="案例：新浪导航栏"><a href="#案例：新浪导航栏" class="headerlink" title="案例：新浪导航栏"></a>案例：新浪导航栏</h3><ul>
+<li><p>padding 内边距可以撑开盒子，我们可以做非常巧妙的运用。</p>
+<ul>
+<li>因为每个导航栏里面的字数不一样多，我们可以不用给每个盒子宽度了，直接给 padding 最合适</li>
+</ul>
+</li>
+<li><p>相关取值：</p>
+<ol>
+<li>上边框为 3 像素，颜色为 #ff8500</li>
+<li>下边框为 1 像素，颜色为 #edeef0</li>
+<li>盒子高度为 41 像素，背景颜色为 #fcfcfc</li>
+<li>文字颜色为 #4c4c4c</li>
+</ol>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    div.nav &#123;</span><br><span class="line">        border-top: 3px solid #ff8500;</span><br><span class="line">        border-bottom: 1px solid #edeef0;</span><br><span class="line">        height: 41px;</span><br><span class="line">        background-color: #fcfcfc;</span><br><span class="line">        */* 继承给 a 标签 */*</span><br><span class="line">        line-height: 41px;</span><br><span class="line">    &#125;</span><br><span class="line">    .nav a &#123;</span><br><span class="line">        display: inline-block;</span><br><span class="line">        height: 41px;</span><br><span class="line">        padding: 0 20px;</span><br><span class="line">        text-decoration: none;</span><br><span class="line">        color: #4c4c4c;</span><br><span class="line">    &#125;</span><br><span class="line">    .nav a:hover &#123;</span><br><span class="line">        background-color: #eee;</span><br><span class="line">        color: #ff8500;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;nav&quot;&gt;</span><br><span class="line">    &lt;a href=&quot;#&quot;&gt;设为首页&lt;/a&gt;</span><br><span class="line">    &lt;a href=&quot;#&quot;&gt;手机新浪网&lt;/a&gt;</span><br><span class="line">    &lt;a href=&quot;#&quot;&gt;移动客户端&lt;/a&gt;</span><br><span class="line">    &lt;a href=&quot;#&quot;&gt;博客&lt;/a&gt;</span><br><span class="line">    &lt;a href=&quot;#&quot;&gt;微博&lt;/a&gt;</span><br><span class="line">    &lt;a href=&quot;#&quot;&gt;关注我&lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="padding-不影响盒子大小的情况"><a href="#padding-不影响盒子大小的情况" class="headerlink" title="padding 不影响盒子大小的情况"></a>padding 不影响盒子大小的情况</h3><ul>
+<li><p>如果盒子本身没有指定 width/height 属性，则此时padding 不会撑开盒子大小</p>
+</li>
+<li><p>子元素通过继承父元素的宽度时，子元素的盒子宽度取 padding-left padding-right 加和父元素宽度的最大值</p>
+<ul>
+<li>如果左右 padding 加和小于父元素宽度，子元素宽度还是继承来的父元素宽度；</li>
+<li>如果加和大于父元素宽度，则子元素盒子宽度是左后 padding 的加和</li>
+</ul>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    div &#123;</span><br><span class="line">        width: 300px;</span><br><span class="line">        height: 60px;</span><br><span class="line">        background-color: red;</span><br><span class="line">    &#125;</span><br><span class="line">    div p &#123;</span><br><span class="line">        padding: 30px;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>p 元素有没有添加 padding: 30px; 不影响本身的盒子宽度大小</li>
+</ul>
+</li>
+</ul>
+<h2 id="12-7-外边距（margin）"><a href="#12-7-外边距（margin）" class="headerlink" title="12.7 外边距（margin）"></a>12.7 外边距（margin）</h2><ul>
+<li><p>margin 属性用于设置外边距，即控制盒子和盒子之间的距离</p>
+</li>
+<li><p>分开的属性：</p>
+<p>  <img src="/images/e207acb0f76f29de2b08fa7b82c5a329.png"></p>
+</li>
+<li><p>margin 简写方式代表的意义跟 padding 完全一致</p>
+</li>
+<li><p>外边距典型应用：</p>
+<ul>
+<li><p>外边距可以让块级盒子水平居中，但是必须满足两个条件：</p>
+<ol>
+<li>盒子必须制定了宽度（width）</li>
+<li>盒子左右的外边距都设置为 auto</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>常见的写法，以下三种都可以：</p>
+<ul>
+<li><code>margin-left: auto; margin-right: auto;</code></li>
+<li><code>margin: auto;</code></li>
+<li><code>margin: 0 auto;</code></li>
+</ul>
+</li>
+<li><p>注意：以上方法是让块级元素水平居中，行内元素或者行内块元素水平居中给其父元素添加 <code>text-align: center</code> 即可</p>
+</li>
+</ul>
+<h2 id="12-8-外边距合并"><a href="#12-8-外边距合并" class="headerlink" title="12.8 外边距合并"></a>12.8 外边距合并</h2><ul>
+<li><p>使用 margin 定义块元素的垂直外边距时，可能会出现外边距的合并</p>
+</li>
+<li><p>主要有两种情况：</p>
+<ol>
+<li>相邻块元素垂直外边距合并</li>
+<li>嵌套块元素垂直外边距的塌陷</li>
+</ol>
+</li>
+</ul>
+<h3 id="相邻块元素垂直外边距的合并"><a href="#相邻块元素垂直外边距的合并" class="headerlink" title="相邻块元素垂直外边距的合并"></a>相邻块元素垂直外边距的合并</h3><ul>
+<li><p>当上下相邻的两个块元素（兄弟关系）相遇时，如果上面元素有下边距，下面元素有上边距，则它们之间的垂直距离不是 margin-bottom 和 margin-top 之和。取两个值中较大者这种现象被称为相邻块元素垂直外边距的合并</p>
+<p>  <img src="/images/3f977c2d9e9b9e5d26096fb07ae0b4e0.png"></p>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .damao,</span><br><span class="line">    .ermao &#123;</span><br><span class="line">        width: 200px;</span><br><span class="line">        height: 200px;</span><br><span class="line">        background-color: skyblue;</span><br><span class="line">    &#125;</span><br><span class="line">    .damao &#123;</span><br><span class="line">        margin-bottom: 100px;</span><br><span class="line">    &#125;</span><br><span class="line">    .ermao &#123;</span><br><span class="line">        margin-top: 200px;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;damao&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;ermao&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>解决方案：</p>
+<ul>
+<li>尽量只给一个盒子添加 margin 值</li>
+</ul>
+</li>
+</ul>
+<h3 id="嵌套块元素垂直外边距的塌陷"><a href="#嵌套块元素垂直外边距的塌陷" class="headerlink" title="嵌套块元素垂直外边距的塌陷"></a>嵌套块元素垂直外边距的塌陷</h3><ul>
+<li><p>对于两个嵌套关系（父子关系）的块元素，父元素有上外边距同时子元素也有上外边距，此时父元素会塌陷较大的外边距值</p>
+<p>  <img src="/images/256c840789a7580dd41efb752ceace44.png"></p>
+</li>
+<li><p>解决方案：</p>
+<ol>
+<li>可以为父元素定义上边框</li>
+<li>可以为父元素定义上内边距</li>
+<li>可以为父元素添加 <code>overflow: hidden</code></li>
+</ol>
+<ul>
+<li>还有其他方法，比如浮动、固定，绝对定位的盒子不会有塌陷问题，后面总结</li>
+</ul>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .father &#123;</span><br><span class="line">        width: 400px;</span><br><span class="line">        height: 400px;</span><br><span class="line">        background-color: red;</span><br><span class="line">        margin-top: 50px;</span><br><span class="line">        */* border: 1px solid transparent; */*</span><br><span class="line">        */* padding: 1px; */*</span><br><span class="line">        overflow: hidden;</span><br><span class="line">    &#125;</span><br><span class="line">    .son &#123;</span><br><span class="line">        width: 200px;</span><br><span class="line">        height: 200px;</span><br><span class="line">        background-color: blue;</span><br><span class="line">        margin-top: 100px;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;father&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;son&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="12-9-清除内外边距"><a href="#12-9-清除内外边距" class="headerlink" title="12.9 清除内外边距"></a>12.9 清除内外边距</h2><ul>
+<li><p>网页元素很多都带有默认的内外边距，而且不同浏览器默认的也不一致。因此我们在布局前，首先要清除下网页元素的内外边距</p>
+</li>
+<li><p>语法：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">    padding: 0;</span><br><span class="line">    margin: 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>注意：行内元素为了照顾兼容性，尽量只设置左右内外边距，不要设置上下内外边距。但是转换为块级和行内元素就可以了</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+              <a href="/tags/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" rel="tag"># 盒子模型</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/13.PS%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" rel="prev" title="CSS3常见样式-13.PS基本操作">
+                  <i class="fa fa-chevron-left"></i> CSS3常见样式-13.PS基本操作
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/11.CSS%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" rel="next" title="CSS3常见样式-11.CSS的三大特性">
+                  CSS3常见样式-11.CSS的三大特性 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备2022007516号 </a>
+  </div>
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">huakaitingqian</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

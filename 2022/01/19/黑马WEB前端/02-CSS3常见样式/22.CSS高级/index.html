@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.program-note.space","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="CSS3 常见样式：精灵图等">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3常见样式-22.CSS高级">
+<meta property="og:url" content="https://www.program-note.space/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/22.CSS%E9%AB%98%E7%BA%A7/index.html">
+<meta property="og:site_name" content="Program Note">
+<meta property="og:description" content="CSS3 常见样式：精灵图等">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.program-note.space/images/49984ed6838650dbd05f66d4e2a597a8.png">
+<meta property="og:image" content="https://www.program-note.space/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/22.CSS%E9%AB%98%E7%BA%A7/:/b3b19d393cd5d76ef1b7ec6d685a6ed5">
+<meta property="og:image" content="https://www.program-note.space/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/22.CSS%E9%AB%98%E7%BA%A7/:/7907c21843906466ee83f634c4b04a92">
+<meta property="og:image" content="https://www.program-note.space/images/6bbe61feb8693f64a85a2b9a577f7d51.png">
+<meta property="og:image" content="https://www.program-note.space/images/4ecabbf9bb3b4c768313eba0bf728e2e.png">
+<meta property="og:image" content="https://www.program-note.space/images/72534ac0f5818233782a340ee15b68ae.png">
+<meta property="og:image" content="https://www.program-note.space/images/e724233a9066ea8e7e95138028f06be7.png">
+<meta property="og:image" content="https://www.program-note.space/images/73985fd893ea3a2652a5807d1523ef83.png">
+<meta property="og:image" content="https://www.program-note.space/images/cc59705ca8db002f8fb968b24a2d0c08.png">
+<meta property="og:image" content="https://www.program-note.space/images/b6912d06c0c549ecf445ec625a11feeb.png">
+<meta property="og:image" content="https://www.program-note.space/images/459a2558ab6be479eb8f90b9c7f28411.png">
+<meta property="og:image" content="https://www.program-note.space/images/2867469c582f03a5f9b7bdc4221eb15a.png">
+<meta property="og:image" content="https://www.program-note.space/images/2612e2403e6d4e9247d3c1b40642595d.png">
+<meta property="og:image" content="https://www.program-note.space/images/c5cf7db93020e5904665861e1cac6a8d.png">
+<meta property="og:image" content="https://www.program-note.space/images/97e3e5c84e8f57c81529eb5cb70a0e4b.png">
+<meta property="og:image" content="https://www.program-note.space/images/09873eb3f4dc39ffb576e7a1138df362.png">
+<meta property="og:image" content="https://www.program-note.space/images/52f61a87da61f8068a02380fa9fe9d83.png">
+<meta property="og:image" content="https://www.program-note.space/images/9ac4f3caf2e1d5a2aee4a3c9859583af.png">
+<meta property="og:image" content="https://www.program-note.space/images/5406d47294d16fd53eb3f0bdf971ce99.png">
+<meta property="og:image" content="https://www.program-note.space/images/be0084dab63328813bc6187d956a8472.png">
+<meta property="og:image" content="https://www.program-note.space/images/fb406490150019206297ed39c9704184.png">
+<meta property="og:image" content="https://www.program-note.space/images/76117e21f420d0850081e1c65f2112b0.png">
+<meta property="og:image" content="https://www.program-note.space/images/2953bc687f7bad544ac6273fb70579f5.png">
+<meta property="article:published_time" content="2022-01-19T09:33:57.864Z">
+<meta property="article:modified_time" content="2022-01-19T09:33:57.864Z">
+<meta property="article:author" content="huakaitingqian">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="CSS高级用法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.program-note.space/images/49984ed6838650dbd05f66d4e2a597a8.png">
+
+
+<link rel="canonical" href="https://www.program-note.space/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/22.CSS%E9%AB%98%E7%BA%A7/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.program-note.space/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/22.CSS%E9%AB%98%E7%BA%A7/","path":"2022/01/19/黑马WEB前端/02-CSS3常见样式/22.CSS高级/","title":"CSS3常见样式-22.CSS高级"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CSS3常见样式-22.CSS高级 | Program Note</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Program Note</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">生命不息、折腾不止</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#22-CSS-%E9%AB%98%E7%BA%A7"><span class="nav-number">1.</span> <span class="nav-text">22.CSS 高级</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#22-1-%E7%B2%BE%E7%81%B5%E5%9B%BE"><span class="nav-number">1.1.</span> <span class="nav-text">22.1 精灵图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#22-1-1-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E7%B2%BE%E7%81%B5%E5%9B%BE"><span class="nav-number">1.1.1.</span> <span class="nav-text">22.1.1 为什么需要精灵图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-1-2-%E7%B2%BE%E7%81%B5%E5%9B%BE%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.2.</span> <span class="nav-text">22.1.2 精灵图的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-1-3-%E6%A1%88%E4%BE%8B%EF%BC%9A%E6%8B%BC%E5%87%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%90%8D%E5%AD%97"><span class="nav-number">1.1.3.</span> <span class="nav-text">22.1.3 案例：拼出自己的名字</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-2-%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87"><span class="nav-number">1.2.</span> <span class="nav-text">22.2 字体图标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#22-2-1-%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E4%BA%A7%E7%94%9F"><span class="nav-number">1.2.1.</span> <span class="nav-text">22.2.1 字体图标产生</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-2-2-%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E4%BC%98%E7%82%B9"><span class="nav-number">1.2.2.</span> <span class="nav-text">22.2.2 字体图标优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-2-3-%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.2.3.</span> <span class="nav-text">22.2.3 字体图标的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#22-2-3-1-%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">22.2.3.1 下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-2-3-2-%E5%BC%95%E5%85%A5"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">22.2.3.2 引入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-2-3-3-%E8%BF%BD%E5%8A%A0"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">22.2.3.3 追加</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-3-CSS-%E4%B8%89%E8%A7%92"><span class="nav-number">1.3.</span> <span class="nav-text">22.3 CSS 三角</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#22-3-1-%E4%B8%89%E8%A7%92%E7%9A%84%E5%81%9A%E6%B3%95"><span class="nav-number">1.3.1.</span> <span class="nav-text">22.3.1 三角的做法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-3-2-%E6%A1%88%E4%BE%8B%EF%BC%9A%E4%BA%AC%E4%B8%9C%E4%B8%89%E8%A7%92"><span class="nav-number">1.3.2.</span> <span class="nav-text">22.3.2 案例：京东三角</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-4-CSS-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E6%A0%B7%E5%BC%8F"><span class="nav-number">1.4.</span> <span class="nav-text">22.4 CSS 用户界面样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#22-4-1-%E4%BB%80%E4%B9%88%E6%98%AF%E7%95%8C%E9%9D%A2%E6%A0%B7%E5%BC%8F"><span class="nav-number">1.4.1.</span> <span class="nav-text">22.4.1 什么是界面样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-4-2-%E9%BC%A0%E6%A0%87%E6%A0%B7%E5%BC%8F-cursor"><span class="nav-number">1.4.2.</span> <span class="nav-text">22.4.2 鼠标样式 cursor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-4-3-%E8%BD%AE%E5%BB%93%E7%BA%BF-outline"><span class="nav-number">1.4.3.</span> <span class="nav-text">22.4.3 轮廓线 outline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-4-4-%E9%98%B2%E6%AD%A2%E6%8B%96%E6%8B%BD%E6%96%87%E6%9C%AC%E5%9F%9F-resize"><span class="nav-number">1.4.4.</span> <span class="nav-text">22.4.4 防止拖拽文本域 resize</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-5-vertical-align-%E5%B1%9E%E6%80%A7%E5%BA%94%E7%94%A8"><span class="nav-number">1.5.</span> <span class="nav-text">22.5 vertical-align 属性应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#22-5-1-%E5%AE%9E%E7%8E%B0%E8%A1%8C%E5%86%85%E5%9D%97%E5%92%8C%E6%96%87%E5%AD%97%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%AF%B9%E9%BD%90"><span class="nav-number">1.5.1.</span> <span class="nav-text">22.5.1 实现行内块和文字垂直居中对齐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-5-2-%E8%A7%A3%E5%86%B3%E5%9B%BE%E7%89%87%E5%BA%95%E9%83%A8%E9%BB%98%E8%AE%A4%E7%A9%BA%E7%99%BD%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98"><span class="nav-number">1.5.2.</span> <span class="nav-text">22.5.2 解决图片底部默认空白缝隙问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-6-%E6%BA%A2%E5%87%BA%E7%9A%84%E6%96%87%E5%AD%97%E7%9C%81%E7%95%A5%E5%8F%B7%E6%98%BE%E7%A4%BA"><span class="nav-number">1.6.</span> <span class="nav-text">22.6 溢出的文字省略号显示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#22-6-1-%E5%8D%95%E8%A1%8C%E6%96%87%E6%9C%AC%E6%BA%A2%E5%87%BA%E6%98%BE%E7%A4%BA%E7%9C%81%E7%95%A5%E5%8F%B7"><span class="nav-number">1.6.1.</span> <span class="nav-text">22.6.1 单行文本溢出显示省略号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-6-2-%E5%A4%9A%E8%A1%8C%E6%96%87%E6%9C%AC%E6%BA%A2%E5%87%BA%E6%98%BE%E7%A4%BA%E7%9C%81%E7%95%A5%E5%8F%B7"><span class="nav-number">1.6.2.</span> <span class="nav-text">22.6.2 多行文本溢出显示省略号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-7-%E5%B8%B8%E8%A7%81%E5%B8%83%E5%B1%80%E6%8A%80%E5%B7%A7"><span class="nav-number">1.7.</span> <span class="nav-text">22.7 常见布局技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#22-7-1-margin-%E8%B4%9F%E5%80%BC%E7%9A%84%E8%BF%90%E7%94%A8"><span class="nav-number">1.7.1.</span> <span class="nav-text">22.7.1 margin 负值的运用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-7-2-%E6%96%87%E5%AD%97%E5%9B%B4%E7%BB%95%E6%B5%AE%E5%8A%A8%E5%85%83%E7%B4%A0"><span class="nav-number">1.7.2.</span> <span class="nav-text">22.7.2 文字围绕浮动元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-7-3-%E8%A1%8C%E5%86%85%E5%9D%97%E5%B7%A7%E5%A6%99%E8%BF%90%E7%94%A8"><span class="nav-number">1.7.3.</span> <span class="nav-text">22.7.3 行内块巧妙运用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-7-4-CSS-%E4%B8%89%E8%A7%92%E5%BC%BA%E5%8C%96"><span class="nav-number">1.7.4.</span> <span class="nav-text">22.7.4 CSS 三角强化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-8-CSS-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">1.8.</span> <span class="nav-text">22.8 CSS 初始化</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">huakaitingqian</p>
+  <div class="site-description" itemprop="description">随便记下</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.program-note.space/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/22.CSS%E9%AB%98%E7%BA%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="huakaitingqian">
+      <meta itemprop="description" content="随便记下">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Note">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSS3常见样式-22.CSS高级
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-19 09:33:57" itemprop="dateCreated datePublished" datetime="2022-01-19T09:33:57+00:00">2022-01-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-19 09:33:57" itemprop="dateModified" datetime="2022-01-19T09:33:57+00:00">2022-01-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">黑马WEB前端</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">02-CSS3常见样式</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>CSS3 常见样式：精灵图等</p>
+<span id="more"></span>
+
+<h1 id="22-CSS-高级"><a href="#22-CSS-高级" class="headerlink" title="22.CSS 高级"></a>22.CSS 高级</h1><h2 id="22-1-精灵图"><a href="#22-1-精灵图" class="headerlink" title="22.1 精灵图"></a>22.1 精灵图</h2><ol>
+<li>为什么需要精灵图？</li>
+<li>精灵图的使用</li>
+<li>精灵图课堂案例</li>
+</ol>
+<h3 id="22-1-1-为什么需要精灵图"><a href="#22-1-1-为什么需要精灵图" class="headerlink" title="22.1.1 为什么需要精灵图"></a>22.1.1 为什么需要精灵图</h3><ul>
+<li><p>网页请求过程：</p>
+<p>  <img src="/images/49984ed6838650dbd05f66d4e2a597a8.png"></p>
+</li>
+<li><p>一个网页中往往会应用很多很小的背景图像作为装饰，当网页中的图像过多时，服务器就会频繁地接收和发送请求图片，造成服务器请求压力过大，这将大大降低页面的加载速度</p>
+</li>
+<li><p>因此，<strong>为了有效地减少服务器接收和发送请求的次数，提高页面的加载速度</strong>，出现了 CSS 精灵技术（也称为 CSS Sprites、CSS 雪碧）</p>
+</li>
+<li><p>核心原理：将网页中的一些小背景图像整合到一张大图中，这样服务器就只需要一次请求就可以了</p>
+</li>
+</ul>
+<h3 id="22-1-2-精灵图的使用"><a href="#22-1-2-精灵图的使用" class="headerlink" title="22.1.2 精灵图的使用"></a>22.1.2 精灵图的使用</h3><ul>
+<li><p>使用精灵图的核心：</p>
+<ol>
+<li>精灵图技术主要针对背景图片使用。就是把多个小背景图整合到一张大图片中</li>
+<li>这个大图也称为 sprites、精灵图、雪碧图</li>
+<li>移动背景图片位置，此时可以使用 background-position</li>
+<li>移动的距离就是这个目标图片的 x 和 y 坐标。注意网页中的坐标有所不同</li>
+<li>因为一般情况下都是往上往左移动，所以数值是负值</li>
+<li>使用精灵图的时候需要精确测量，每个小背景图片的大小和位置</li>
+</ol>
+</li>
+<li><p>示例：</p>
+<ul>
+<li>针对王者荣耀网站使用的精灵图</li>
+</ul>
+<p>  <img src=":/b3b19d393cd5d76ef1b7ec6d685a6ed5" alt="index.png"></p>
+<ul>
+<li><p>代码：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .box1 &#123;</span><br><span class="line">        width: 60px;</span><br><span class="line">        height: 60px;</span><br><span class="line">        margin: 100px auto;</span><br><span class="line">        background: url(images/index.png) no-repeat -182px 0;</span><br><span class="line">    &#125;</span><br><span class="line">    .box2 &#123;</span><br><span class="line">        width: 27px;</span><br><span class="line">        height: 25px;</span><br><span class="line">        margin: 200px;</span><br><span class="line">        background: url(images/index.png) no-repeat -155px -106px;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;box1&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="22-1-3-案例：拼出自己的名字"><a href="#22-1-3-案例：拼出自己的名字" class="headerlink" title="22.1.3 案例：拼出自己的名字"></a>22.1.3 案例：拼出自己的名字</h3><ul>
+<li><p>使用的背景图片：600*669</p>
+<p>  <img src=":/7907c21843906466ee83f634c4b04a92" alt="abcd.jpg"></p>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .one,</span><br><span class="line">    .two,</span><br><span class="line">    .three &#123;</span><br><span class="line">        float: left;</span><br><span class="line">        width: 110px;</span><br><span class="line">        height: 120px;</span><br><span class="line">        background: skyblue;</span><br><span class="line">        */* border: 1px solid #000; */*</span><br><span class="line">        background: url(images/abcd.jpg) no-repeat;</span><br><span class="line">    &#125;</span><br><span class="line">    .one &#123;</span><br><span class="line">        background-position: -479px -550px;</span><br><span class="line">    &#125;</span><br><span class="line">    .two &#123;</span><br><span class="line">        background-position: -366px -550px;</span><br><span class="line">    &#125;</span><br><span class="line">    .three &#123;</span><br><span class="line">        background-position: -251px -550px;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;div class=&quot;one&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;two&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;three&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>效果图：</p>
+<p>  <img src="/images/6bbe61feb8693f64a85a2b9a577f7d51.png"></p>
+</li>
+</ul>
+<h2 id="22-2-字体图标"><a href="#22-2-字体图标" class="headerlink" title="22.2 字体图标"></a>22.2 字体图标</h2><h3 id="22-2-1-字体图标产生"><a href="#22-2-1-字体图标产生" class="headerlink" title="22.2.1 字体图标产生"></a>22.2.1 字体图标产生</h3><ul>
+<li><p>字体图标使用场景：主要用于显示网页中通用、常用的一些小图标</p>
+</li>
+<li><p>精灵图有很诸多优点的，但是缺点很明显</p>
+<ol>
+<li>图片文件还是比较大的</li>
+<li>图片本身放大和缩小会失真</li>
+<li>一旦图片制作完毕想要更换非常复杂</li>
+</ol>
+</li>
+<li><p>此时，有一种技术的出现很好地解决了以上问题，就是字体图表 iconfont</p>
+</li>
+<li><p>字体图标可以为前端工程师提供一种方便高效的图标使用方式，<strong>展示的是图标，本质属于字体</strong></p>
+</li>
+</ul>
+<h3 id="22-2-2-字体图标优点"><a href="#22-2-2-字体图标优点" class="headerlink" title="22.2.2 字体图标优点"></a>22.2.2 字体图标优点</h3><ul>
+<li><p>轻量级：一个图标字体要比一系列的图像要小，一旦字体加载了，图标就会马上渲染出来，减少了服务器及请求</p>
+</li>
+<li><p>灵活性：本质其实是文字，可以很随意的改变颜色、产生阴影、透明效果、旋转等</p>
+</li>
+<li><p>兼容性：几乎支持所有浏览器，请放心使用</p>
+</li>
+<li><p>注意：字体图标不能替代精灵技术，只是对工作中图标部分技术的提升和优化</p>
+</li>
+<li><p>总结：</p>
+<ol>
+<li>如果遇到一些结构和样式比较简单的小图标，就用字体图标</li>
+<li>如果遇到一些结构和样式复杂一点的小图片，就用精灵图</li>
+</ol>
+</li>
+</ul>
+<h3 id="22-2-3-字体图标的使用"><a href="#22-2-3-字体图标的使用" class="headerlink" title="22.2.3 字体图标的使用"></a>22.2.3 字体图标的使用</h3><ul>
+<li><p>字体图标是一些网页常见的小图标，直接网上下载即可。因此使用可以分为：</p>
+<ol>
+<li>字体图标的下载</li>
+<li>字体图标的引入（引入到 html 页面中）</li>
+<li>字体图标的追加（以后添加新的小图标）</li>
+</ol>
+</li>
+</ul>
+<h4 id="22-2-3-1-下载"><a href="#22-2-3-1-下载" class="headerlink" title="22.2.3.1 下载"></a>22.2.3.1 下载</h4><ul>
+<li>推荐下载网站：<ul>
+<li>icomoon 字库： <a target="_blank" rel="noopener" href="https://icomoon.io/">https://icomoon.io</a><ul>
+<li>IcoMoon 成立于2011年，退出了第一个自定义图标字体生成器，它允许用户选择所需要的的图标，使它们成为字型。该字库内容种类繁多，非常全面，唯一的遗憾是国外服务器，打开网速较慢</li>
+</ul>
+</li>
+<li>阿里 iconfont 字库：<a target="_blank" rel="noopener" href="http://www.iconfont.cn/">http://www.iconfont.cn</a><ul>
+<li>这个是阿里巴巴 M2UX 的一个 iconfont 字体图标字库，包含了淘宝图标库和阿里巴巴图标库。可以使用 AI 制作图标上传生成。免费</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>步骤：挑选需要的图标，然后生成字体图标库，下载</li>
+<li>下载完毕之后，注意原先的文件不要删，后面会用</li>
+</ul>
+<h4 id="22-2-3-2-引入"><a href="#22-2-3-2-引入" class="headerlink" title="22.2.3.2 引入"></a>22.2.3.2 引入</h4><ul>
+<li><p>解压后 fonts 目录：</p>
+<ol>
+<li><p>TrueType（.ttf）格式。是 windows 和 mac 的最常见的字体，支持这种字体的浏览器 IE9+、Firefox3.5+、Chrome6+、Safari4+、Safari3+、Opera10+、iOS Mobile Safari4.2+</p>
+</li>
+<li><p>WebOpenFontFormat（.woff）格式。支持这种字体的浏览器有 IE9+、Firefox3.5+、Chrome6+、Safari3.6+、Opera11.1+</p>
+</li>
+<li><p>EmbeddedOpenType（.eot）格式。是 IE 专用字体，支持这种字体的浏览器有 IE4+</p>
+</li>
+<li><p>SVG（.svg）格式。是基于 SVG 字体渲染的一种格式，支持这种字体的浏览器 Chrome4+、Safari3.1+、Opera10.0+、iOS Mobile Safari3.2+</p>
+</li>
+</ol>
+</li>
+<li><p>步骤：</p>
+<ol>
+<li><p>把下载包里面的 fonts 文件夹放入页面根目录下</p>
+</li>
+<li><p>在 CSS 样式中全局声明字体：简单理解把这些字体文件通过 CSS 引入到我们页面中。解压目录中的是 style.css 开头部分可以获取该示例代码</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@font-face &#123;</span><br><span class="line">  font-family: &#x27;icomoon&#x27;;</span><br><span class="line">  src:  url(&#x27;fonts/icomoon.eot?qv22q7&#x27;);</span><br><span class="line">  src:  url(&#x27;fonts/icomoon.eot?qv22q7#iefix&#x27;) format(&#x27;embedded-opentype&#x27;),</span><br><span class="line">    url(&#x27;fonts/icomoon.ttf?qv22q7&#x27;) format(&#x27;truetype&#x27;),</span><br><span class="line">    url(&#x27;fonts/icomoon.woff?qv22q7&#x27;) format(&#x27;woff&#x27;),</span><br><span class="line">    url(&#x27;fonts/icomoon.svg?qv22q7#icomoon&#x27;) format(&#x27;svg&#x27;);</span><br><span class="line">  font-weight: normal;</span><br><span class="line">  font-style: normal;</span><br><span class="line">  font-display: block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>html 标签内添加小图标。解压文件 demo.html 文件中可以获取<br><img src="/images/4ecabbf9bb3b4c768313eba0bf728e2e.png"><br><code>&lt;span&gt;&lt;span&gt;</code></p>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="4">
+<li><p>为 span 指定字体样式</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">span &#123;</span><br><span class="line">    font-family: &quot;icomoon&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="22-2-3-3-追加"><a href="#22-2-3-3-追加" class="headerlink" title="22.2.3.3 追加"></a>22.2.3.3 追加</h4><ul>
+<li><p>如果工作中，原来的字体图标不够用了，我们需要添加新的字体图标到原理的字体文件中</p>
+</li>
+<li><p>把压缩包里面的 selection.json 重新上传，然后选中自己想要的新的图标，重新下载压缩包，并替换原来的文件即可</p>
+</li>
+<li><p>图示：</p>
+<p>  <img src="/images/72534ac0f5818233782a340ee15b68ae.png"></p>
+</li>
+</ul>
+<h2 id="22-3-CSS-三角"><a href="#22-3-CSS-三角" class="headerlink" title="22.3 CSS 三角"></a>22.3 CSS 三角</h2><h3 id="22-3-1-三角的做法"><a href="#22-3-1-三角的做法" class="headerlink" title="22.3.1 三角的做法"></a>22.3.1 三角的做法</h3><ul>
+<li><p>网页中常见一些三角形，使用 CSS 直接画出来就可以，不必做成图片或者字体图标</p>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .box &#123;</span><br><span class="line">        width: 0;</span><br><span class="line">        height: 0;</span><br><span class="line">        border-top: 10px solid red;</span><br><span class="line">        border-right: 10px solid green;</span><br><span class="line">        border-bottom: 10px solid blue;</span><br><span class="line">        border-left: 10px solid black;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>效果图：</li>
+</ul>
+<p>  <img src="/images/e724233a9066ea8e7e95138028f06be7.png"></p>
+</li>
+<li><p>所以三角形样式可以设置三遍为透明，一遍为需要的颜色</p>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .box &#123;</span><br><span class="line">        width: 0;</span><br><span class="line">        height: 0;</span><br><span class="line">        border: 10px solid transparent;</span><br><span class="line">        border-top: 10px solid red;</span><br><span class="line">        */* 为了兼容性 */*</span><br><span class="line">        line-height: 0;</span><br><span class="line">        font-size: 0;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>效果图：</li>
+</ul>
+<p>  <img src="/images/73985fd893ea3a2652a5807d1523ef83.png"></p>
+</li>
+</ul>
+<h3 id="22-3-2-案例：京东三角"><a href="#22-3-2-案例：京东三角" class="headerlink" title="22.3.2 案例：京东三角"></a>22.3.2 案例：京东三角</h3><ul>
+<li><p>布局分析：使用定位</p>
+<p>  <img src="/images/cc59705ca8db002f8fb968b24a2d0c08.png"></p>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .jd &#123;</span><br><span class="line">        position: relative;</span><br><span class="line">        width: 120px;</span><br><span class="line">        height: 250px;</span><br><span class="line">        background-color: skyblue;</span><br><span class="line">    &#125;</span><br><span class="line">    .jd span &#123;</span><br><span class="line">        position: absolute;</span><br><span class="line">        top: -20px;</span><br><span class="line">        left: 70%;</span><br><span class="line">        border: 10px solid transparent;</span><br><span class="line">        border-bottom: 10px solid skyblue;</span><br><span class="line">        */* 为了兼容性 */*</span><br><span class="line">        line-height: 0;</span><br><span class="line">        font-size: 0;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;jd&quot;&gt;</span><br><span class="line">    &lt;span&gt;&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="22-4-CSS-用户界面样式"><a href="#22-4-CSS-用户界面样式" class="headerlink" title="22.4 CSS 用户界面样式"></a>22.4 CSS 用户界面样式</h2><h3 id="22-4-1-什么是界面样式"><a href="#22-4-1-什么是界面样式" class="headerlink" title="22.4.1 什么是界面样式"></a>22.4.1 什么是界面样式</h3><ul>
+<li>所谓的界面样式，就是更改一些用户操作样式，以便提高更好的用户体验</li>
+<li>更改用户的鼠标样式</li>
+<li>表单轮廓</li>
+<li>防止表单域拖拽</li>
+</ul>
+<h3 id="22-4-2-鼠标样式-cursor"><a href="#22-4-2-鼠标样式-cursor" class="headerlink" title="22.4.2 鼠标样式 cursor"></a>22.4.2 鼠标样式 cursor</h3><ul>
+<li><p>语法：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">选择器 &#123;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>设置或检索在对象上移动的鼠标指针采用何种系统预定义的光标样式</p>
+</li>
+<li><p>属性值：还有其他样式</p>
+<p>  <img src="/images/b6912d06c0c549ecf445ec625a11feeb.png"></p>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li style=&quot;cursor: default;&quot;&gt;默认的&lt;/li&gt;</span><br><span class="line">    &lt;li style=&quot;cursor: pointer;&quot;&gt;小手&lt;/li&gt;</span><br><span class="line">    &lt;li style=&quot;cursor: move;&quot;&gt;移动&lt;/li&gt;</span><br><span class="line">    &lt;li style=&quot;cursor: text;&quot;&gt;文本&lt;/li&gt;</span><br><span class="line">    &lt;li style=&quot;cursor: not-allowed;&quot;&gt;禁止&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="22-4-3-轮廓线-outline"><a href="#22-4-3-轮廓线-outline" class="headerlink" title="22.4.3 轮廓线 outline"></a>22.4.3 轮廓线 outline</h3><ul>
+<li><p>给表单添加 <code>outline: 0;</code> 或者 <code>outline: none;</code> 样式之后，就可以去掉默认的蓝色边框</p>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    input &#123;</span><br><span class="line">        outline: none;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;input type=&quot;text&quot;&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="22-4-4-防止拖拽文本域-resize"><a href="#22-4-4-防止拖拽文本域-resize" class="headerlink" title="22.4.4 防止拖拽文本域 resize"></a>22.4.4 防止拖拽文本域 resize</h3><ul>
+<li><p>语法：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">textarea &#123;</span><br><span class="line">    resize: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>注意：textarea 文本域标签最好在一行上。如果结束标签换行，文本域输入文字时不是在最开始</p>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    textarea &#123;</span><br><span class="line">        resize: none;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;textarea name=&quot;&quot; id=&quot;&quot; cols=&quot;30&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="22-5-vertical-align-属性应用"><a href="#22-5-vertical-align-属性应用" class="headerlink" title="22.5 vertical-align 属性应用"></a>22.5 vertical-align 属性应用</h2><h3 id="22-5-1-实现行内块和文字垂直居中对齐"><a href="#22-5-1-实现行内块和文字垂直居中对齐" class="headerlink" title="22.5.1 实现行内块和文字垂直居中对齐"></a>22.5.1 实现行内块和文字垂直居中对齐</h3><ul>
+<li><p>CSS 的 vertical-align 属性使用场景：经常用于设置图片或者表单（行内块元素）和文字垂直对齐</p>
+</li>
+<li><p>官方解释：用于设置一个元素的垂直对齐方式，但是它只针对于行内元素或者行内块元素有效</p>
+</li>
+<li><p>语法：</p>
+<p>  <code>vertical-align: baseline| top | middle | bottom</code></p>
+</li>
+<li><p>属性值：</p>
+<p>  <img src="/images/459a2558ab6be479eb8f90b9c7f28411.png"></p>
+</li>
+<li><p>各种线的说明</p>
+<p>  <img src="/images/2867469c582f03a5f9b7bdc4221eb15a.png"></p>
+</li>
+<li><p>示例：</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    img &#123;</span><br><span class="line">        */* vertical-align: bottom; */*</span><br><span class="line">        */* 让图片和文字垂直居中 */*</span><br><span class="line">        vertical-align: middle;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;img src=&quot;images/tb.jpg&quot; alt=&quot;&quot;&gt; g这是测试文字 abcdefg</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>图片、表单都属于行内块元素，默认的 vertical-align 是基线对齐</p>
+<p>  <img src="/images/2612e2403e6d4e9247d3c1b40642595d.png"></p>
+<ul>
+<li>此时可以给图片、表单这些行内块元素的 vertical-align 属性设置为 middle 就可以让文字和图片垂直居中了</li>
+</ul>
+</li>
+</ul>
+<h3 id="22-5-2-解决图片底部默认空白缝隙问题"><a href="#22-5-2-解决图片底部默认空白缝隙问题" class="headerlink" title="22.5.2 解决图片底部默认空白缝隙问题"></a>22.5.2 解决图片底部默认空白缝隙问题</h3><ul>
+<li><p>bug：图片底侧会有一个空白缝隙，原因是行内块元素会和文字的基线对齐</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    div &#123;</span><br><span class="line">        border: 2px solid red;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;img src=&quot;images/tb.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>效果图：</li>
+</ul>
+<p>  <img src="/images/c5cf7db93020e5904665861e1cac6a8d.png"></p>
+</li>
+<li><p>原因：图片默认是和文字的基线对齐</p>
+</li>
+<li><p>主要解决方法有两种：</p>
+<ol>
+<li>给图片添加 <code>vertical-align: middle|top|bottom</code> 等，只要不是基线即可（提倡使用）</li>
+<li>把图片转换为块级元素 <code>display: block;</code> 因为只有行内元素和行内块元素有 vertical-align 属性</li>
+</ol>
+</li>
+<li><p>两种方法的示例：</p>
+<p>  <img src="/images/97e3e5c84e8f57c81529eb5cb70a0e4b.png"></p>
+</li>
+</ul>
+<h2 id="22-6-溢出的文字省略号显示"><a href="#22-6-溢出的文字省略号显示" class="headerlink" title="22.6 溢出的文字省略号显示"></a>22.6 溢出的文字省略号显示</h2><h3 id="22-6-1-单行文本溢出显示省略号"><a href="#22-6-1-单行文本溢出显示省略号" class="headerlink" title="22.6.1 单行文本溢出显示省略号"></a>22.6.1 单行文本溢出显示省略号</h3><ul>
+<li><p>单行文本图示：</p>
+<p>  <img src="/images/09873eb3f4dc39ffb576e7a1138df362.png"></p>
+</li>
+<li><p>必须满足三个条件</p>
+<ol>
+<li><p>先强制一行内显示文本</p>
+<ul>
+<li><code>white-space: nowrap;</code> (默认 normal 自动换行）</li>
+</ul>
+</li>
+<li><p>超出的部分隐藏</p>
+<ul>
+<li><code>overflow: hidden;</code></li>
+</ul>
+</li>
+<li><p>文字用省略号替代超出的部分</p>
+<ul>
+<li><code>text-overflow: ellipsis;</code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    div &#123;</span><br><span class="line">        width: 150px;</span><br><span class="line">        height: 80px;</span><br><span class="line">        background-color: skyblue;</span><br><span class="line">        margin: 100px auto;</span><br><span class="line">        white-space: nowrap;</span><br><span class="line">        overflow: hidden;</span><br><span class="line">        text-overflow: ellipsis;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div&gt;啥也不说，这是测试文字啦啦啦啦啦&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="22-6-2-多行文本溢出显示省略号"><a href="#22-6-2-多行文本溢出显示省略号" class="headerlink" title="22.6.2 多行文本溢出显示省略号"></a>22.6.2 多行文本溢出显示省略号</h3><ul>
+<li><p>多行文本图示：</p>
+<p>  <img src="/images/52f61a87da61f8068a02380fa9fe9d83.png"></p>
+</li>
+<li><p>多行文本溢出显示省略号，有较大的兼容性，适合于 webKit 浏览器或移动端（移动端大部分是 webKit 内核）</p>
+</li>
+<li><p>步骤：</p>
+<ul>
+<li>溢出隐藏<ul>
+<li><code>overflow: hidden;</code></li>
+</ul>
+</li>
+<li>溢出部分文字使用省略号替代<ul>
+<li><code>text-overflow: ellipsis;</code></li>
+</ul>
+</li>
+<li>弹性伸缩盒子模型显示<ul>
+<li><code>display: -webkit-box;</code></li>
+</ul>
+</li>
+<li>限制在一个块元素显示的文本的行数<ul>
+<li><code>-webkit-line-clamp: 2;</code></li>
+</ul>
+</li>
+<li>设置或检索伸缩盒对象的子元素的排列方式<ul>
+<li><code>-webkit-box-orient: vertical;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    div &#123;</span><br><span class="line">        width: 100px;</span><br><span class="line">        height: 40px;</span><br><span class="line">        background-color: skyblue;</span><br><span class="line">        margin: 100px auto;</span><br><span class="line">        overflow: hidden;</span><br><span class="line">        text-overflow: ellipsis;</span><br><span class="line">        display: -webkit-box;</span><br><span class="line">        -webkit-line-clamp: 2;</span><br><span class="line">        -webkit-box-orient: vertical;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div&gt;啥也不说，这是测试文字啦啦啦啦啦啦啦&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>更推荐让后台人员来做这个效果，因为后台人员可以设置显示多个个字，操作更简单</p>
+</li>
+</ul>
+<h2 id="22-7-常见布局技巧"><a href="#22-7-常见布局技巧" class="headerlink" title="22.7 常见布局技巧"></a>22.7 常见布局技巧</h2><ul>
+<li><p>巧妙利用一个技术更快更好的布局</p>
+<ol>
+<li>margin 负值的运用</li>
+<li>文字围绕浮动元素</li>
+<li>行内块的巧妙运用</li>
+<li>CSS 三角强化</li>
+</ol>
+</li>
+</ul>
+<h3 id="22-7-1-margin-负值的运用"><a href="#22-7-1-margin-负值的运用" class="headerlink" title="22.7.1 margin 负值的运用"></a>22.7.1 margin 负值的运用</h3><ul>
+<li><p>图示：</p>
+<p>  <img src="/images/9ac4f3caf2e1d5a2aee4a3c9859583af.png"></p>
+</li>
+<li><p>步骤：</p>
+<ol>
+<li>让每个盒子 margin 往左侧移动 -1px 正好压住相邻盒子边框</li>
+<li>鼠标经过某个盒子的时候，提高当前盒子的层级即可（如果没有定位，则加相对定位（保留位置），如果有定位，则加 z-index）</li>
+</ol>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;1&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;2&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;3&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;4&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;5&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">*/* 1. 如果盒子没有定位，则鼠标经过添加相对定位即可 */*</span><br><span class="line">ul li &#123;</span><br><span class="line">    float: left;</span><br><span class="line">    list-style: none;</span><br><span class="line">    width: 150px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    border: 5px solid red;</span><br><span class="line">    margin-left: -5px;</span><br><span class="line">&#125;</span><br><span class="line">ul li:hover &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    border: 5px solid blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">*/* 2. 如果盒子都有相对定位，则利用 z-index 提高层级 */*</span><br><span class="line">ul li &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    float: left;</span><br><span class="line">    list-style: none;</span><br><span class="line">    width: 150px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    border: 5px solid red;</span><br><span class="line">    margin-left: -5px;</span><br><span class="line">&#125;</span><br><span class="line">ul li:hover &#123;</span><br><span class="line">    z-index: 1;</span><br><span class="line">    border: 5px solid blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="22-7-2-文字围绕浮动元素"><a href="#22-7-2-文字围绕浮动元素" class="headerlink" title="22.7.2 文字围绕浮动元素"></a>22.7.2 文字围绕浮动元素</h3><ul>
+<li><p>图示：</p>
+<p>  <img src="/images/5406d47294d16fd53eb3f0bdf971ce99.png"></p>
+</li>
+<li><p>巧妙运用浮动元素不会压住文字的特性</p>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    * &#123;</span><br><span class="line">        padding: 0;</span><br><span class="line">        margin: 0;</span><br><span class="line">    &#125;</span><br><span class="line">    .box &#123;</span><br><span class="line">        width: 300px;</span><br><span class="line">        height: 70px;</span><br><span class="line">        background-color: skyblue;</span><br><span class="line">    &#125;</span><br><span class="line">    .pic &#123;</span><br><span class="line">        float: left;</span><br><span class="line">        width: 150px;</span><br><span class="line">        height: 70px;</span><br><span class="line">        margin-right: 5px;</span><br><span class="line">    &#125;</span><br><span class="line">    .pic img &#123;</span><br><span class="line">        width: 100%;</span><br><span class="line">        height: 100%;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;box&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;pic&quot;&gt;</span><br><span class="line">        &lt;img src=&quot;images/img.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;p&gt;【集锦】热身赛-巴西0-1秘鲁 内马尔替补两人血染赛场&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="22-7-3-行内块巧妙运用"><a href="#22-7-3-行内块巧妙运用" class="headerlink" title="22.7.3 行内块巧妙运用"></a>22.7.3 行内块巧妙运用</h3><ul>
+<li><p>图示</p>
+<p>  <img src="/images/be0084dab63328813bc6187d956a8472.png"></p>
+</li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .box &#123;</span><br><span class="line">        text-align: center;</span><br><span class="line">    &#125;</span><br><span class="line">    .box a &#123;</span><br><span class="line">        display: inline-block;</span><br><span class="line">        width: 36px;</span><br><span class="line">        height: 36px;</span><br><span class="line">        background-color: skyblue;</span><br><span class="line">        border: 1px solid red;</span><br><span class="line">        text-align: center;</span><br><span class="line">        line-height: 36px;</span><br><span class="line">        text-decoration: none;</span><br><span class="line">        color: #333;</span><br><span class="line">    &#125;</span><br><span class="line">    .box .prev,</span><br><span class="line">    .box .next &#123;</span><br><span class="line">        width: 85px;</span><br><span class="line">    &#125;</span><br><span class="line">    .box .current &#123;</span><br><span class="line">        background-color: #fff;</span><br><span class="line">        border: none;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;box&quot;&gt;</span><br><span class="line">    &lt;a href=&quot;&quot; class=&quot;prev&quot;&gt;&amp;lt;&amp;lt;上一页&lt;/a&gt;</span><br><span class="line">    &lt;a href=&quot;&quot; class=&quot;current&quot;&gt;2&lt;/a&gt;</span><br><span class="line">    &lt;a href=&quot;&quot;&gt;3&lt;/a&gt;</span><br><span class="line">    &lt;a href=&quot;&quot;&gt;4&lt;/a&gt;</span><br><span class="line">    &lt;a href=&quot;&quot;&gt;5&lt;/a&gt;</span><br><span class="line">    &lt;a href=&quot;&quot;&gt;6&lt;/a&gt;</span><br><span class="line">    &lt;a href=&quot;&quot;&gt;7&lt;/a&gt;</span><br><span class="line">    &lt;a href=&quot;&quot; class=&quot;next&quot;&gt;&amp;gt;&amp;gt;下一页&lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="22-7-4-CSS-三角强化"><a href="#22-7-4-CSS-三角强化" class="headerlink" title="22.7.4 CSS 三角强化"></a>22.7.4 CSS 三角强化</h3><ul>
+<li><p>示例：</p>
+<p>  <img src="/images/fb406490150019206297ed39c9704184.png"></p>
+</li>
+<li></li>
+<li><p>示例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .box &#123;</span><br><span class="line">        width: 0;</span><br><span class="line">        height: 0;</span><br><span class="line">        */* 左边和下边的边框宽度设置为0， 把上边框宽度调大 */*</span><br><span class="line">        */* border-top: 50px solid transparent;</span><br><span class="line">        border-right: 10px solid green;</span><br><span class="line">        border-bottom: 0 solid blue;</span><br><span class="line">        border-left: 0 solid black; */*</span><br><span class="line">        */* border: 0 solid transparent;</span><br><span class="line">        border-top: 50px solid transparent;</span><br><span class="line">        border-right: 10px solid green; */*</span><br><span class="line">        border-color: transparent green transparent transparent;</span><br><span class="line">        border-style: solid;</span><br><span class="line">        border-width: 50px 10px 0 0;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>效果图：</li>
+</ul>
+<p>  <img src="/images/76117e21f420d0850081e1c65f2112b0.png"></p>
+</li>
+<li><p>京东案例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .price &#123;</span><br><span class="line">        width: 160px;</span><br><span class="line">        height: 24px;</span><br><span class="line">        border: 1px solid red;</span><br><span class="line">        margin: 0 auto;</span><br><span class="line">        line-height: 24px;</span><br><span class="line">    &#125;</span><br><span class="line">    .miaosha &#123;</span><br><span class="line">        position: relative;</span><br><span class="line">        float: left;</span><br><span class="line">        width: 90px;</span><br><span class="line">        height: 100%;</span><br><span class="line">        background-color: red;</span><br><span class="line">        text-align: center;</span><br><span class="line">        color: #fff;</span><br><span class="line">        font-weight: 700;</span><br><span class="line">    &#125;</span><br><span class="line">    .miaosha i &#123;</span><br><span class="line">        position: absolute;</span><br><span class="line">        top: 0;</span><br><span class="line">        right: 0;</span><br><span class="line">        width: 0;</span><br><span class="line">        height: 0;</span><br><span class="line">        border-color: transparent #fff transparent transparent;</span><br><span class="line">        border-style: solid;</span><br><span class="line">        border-width: 24px 10px 0 0;</span><br><span class="line">    &#125;</span><br><span class="line">    .origin &#123;</span><br><span class="line">        font-size: 12px;</span><br><span class="line">        color: gray;</span><br><span class="line">        text-decoration: line-through;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div class=&quot;price&quot;&gt;</span><br><span class="line">    &lt;span class=&quot;miaosha&quot;&gt;￥1650</span><br><span class="line">        &lt;i&gt;&lt;/i&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">    &lt;span class=&quot;origin&quot;&gt;￥5560&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="22-8-CSS-初始化"><a href="#22-8-CSS-初始化" class="headerlink" title="22.8 CSS 初始化"></a>22.8 CSS 初始化</h2><ul>
+<li><p>不同浏览器对有些标签的默认值是不同的，为了消除不同浏览器对 HTML 文本呈现的差异，照顾浏览器的兼容，我们需要对 CSS 初始化</p>
+</li>
+<li><p>简单理解：CSS 初始化是指重设浏览器的样式（也称 CSS reset）</p>
+</li>
+<li><p>每个网页都必须首先进行 CSS 初始化</p>
+</li>
+<li><p>京东 CSS 初始化代码：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">*/* 把所有标签的内外边距清零 */*</span><br><span class="line">* &#123;</span><br><span class="line">    margin: 0;</span><br><span class="line">    padding: 0</span><br><span class="line">&#125;</span><br><span class="line">*/* 把斜体的文字不倾斜*/*</span><br><span class="line">em, i &#123;</span><br><span class="line">    font-style: normal</span><br><span class="line">&#125;</span><br><span class="line">*/*去掉 li 的小圆点*/*</span><br><span class="line">li &#123;</span><br><span class="line">    list-style: none</span><br><span class="line">&#125;</span><br><span class="line">img &#123;</span><br><span class="line">    */*border 0 照顾低版本的浏览器：如果图片外面包含了链接，会有边框的问题*/*</span><br><span class="line">    border: 0;</span><br><span class="line">    */*取消图片底侧有空白缝隙的问题*/*</span><br><span class="line">    vertical-align: middle</span><br><span class="line">&#125;</span><br><span class="line">*/*鼠标经过 button 时，鼠标变成小手*/*</span><br><span class="line">button &#123;</span><br><span class="line">    cursor: pointer</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">*/*设置超链接样式*/*</span><br><span class="line">a &#123;</span><br><span class="line">    color: #666;</span><br><span class="line">    text-decoration: none</span><br><span class="line">&#125;</span><br><span class="line">*/*鼠标经过超链接时显示京东红颜色*/*</span><br><span class="line">a:hover &#123;</span><br><span class="line">    color: #c81623</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">*/*设置字体*/*</span><br><span class="line">button, input &#123;</span><br><span class="line"></span><br><span class="line">    font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, &quot;\5B8B\4F53&quot;, sans-serif</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">body &#123;</span><br><span class="line">    */*CSS3 属性，抗锯齿，让文字显示的更加清晰*/*</span><br><span class="line">    -webkit-font-smoothing: antialiased;</span><br><span class="line">    background-color: #fff;</span><br><span class="line"></span><br><span class="line">    font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, &quot;\5B8B\4F53&quot;, sans-serif;</span><br><span class="line"></span><br><span class="line">    color: #666</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">*/*隐藏元素*/*</span><br><span class="line">.hide, .none &#123;</span><br><span class="line">    display: none</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">*/*清楚浮动*/*</span><br><span class="line">.clearfix:after &#123;</span><br><span class="line">    visibility: hidden;</span><br><span class="line">    clear: both;</span><br><span class="line">    display: block;</span><br><span class="line">    content: &quot;.&quot;;</span><br><span class="line">    height: 0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.clearfix &#123;</span><br><span class="line">    *zoom: 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Unicode 编码字体</p>
+<ul>
+<li>把中文字体的名称用相应的 Unicode 编码来代替，这样就可以有效的避免浏览器解释 CSS 代码时候出现乱码的问题</li>
+<li>比如：<ul>
+<li>黑体：<code>\9ED1\4F53</code></li>
+<li>宋体：<code>\5B8B\4F53</code></li>
+<li>微软雅黑：<code>\5FAE\8F6F\96C5\9ED1</code></li>
+</ul>
+</li>
+</ul>
+<p>  <img src="/images/2953bc687f7bad544ac6273fb70579f5.png"></p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+              <a href="/tags/CSS%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/" rel="tag"># CSS高级用法</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/03-H5C3%E6%96%B0%E7%89%B9%E6%80%A7/01-HTML5CSS3%E6%8F%90%E9%AB%98/" rel="prev" title="H5C3新特性-01-HTML5CSS3提高">
+                  <i class="fa fa-chevron-left"></i> H5C3新特性-01-HTML5CSS3提高
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/19/%E9%BB%91%E9%A9%ACWEB%E5%89%8D%E7%AB%AF/02-CSS3%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F/21.%E5%85%83%E7%B4%A0%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E9%9A%90%E8%97%8F/" rel="next" title="CSS3常见样式-21.元素的显示与隐藏">
+                  CSS3常见样式-21.元素的显示与隐藏 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备2022007516号 </a>
+  </div>
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">huakaitingqian</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
